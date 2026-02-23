@@ -5,6 +5,7 @@ import GirlsBarPage from './pages/GirlsBarPage.tsx'
 import SnackPage from './pages/SnackPage.tsx'
 import HostPage from './pages/HostPage.tsx'
 import LoungePage from './pages/LoungePage.tsx'
+import NotFoundPage from './pages/NotFoundPage.tsx'
 
 declare global {
   interface Window { gtag: (...args: unknown[]) => void }
@@ -27,7 +28,7 @@ export default function App() {
       <Route path="/host" element={<HostPage />} />
       <Route path="/lounge" element={<LoungePage />} />
       <Route path="/" element={<Navigate to="/cabaret" replace />} />
-      <Route path="*" element={<Navigate to="/cabaret" replace />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }
