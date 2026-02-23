@@ -81,7 +81,7 @@ function Header() {
 
       {/* Mobile Slide-in Panel */}
       <div
-        className={`md:hidden fixed top-16 right-0 h-[calc(100vh-4rem)] w-64 bg-[#0a0a18]/95 backdrop-blur-md border-l border-[#2e2e50] transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed top-16 right-0 h-[calc(100vh-4rem)] w-64 z-50 bg-[#0a0a18]/95 backdrop-blur-md border-l border-[#2e2e50] transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -102,7 +102,7 @@ function Header() {
       {/* Mobile Overlay */}
       {isMenuOpen && (
         <div
-          className="md:hidden fixed inset-0 top-16 bg-black/50 z-[-1]"
+          className="md:hidden fixed inset-0 top-16 bg-black/50 z-40"
           onClick={() => setIsMenuOpen(false)}
           aria-hidden="true"
         />
