@@ -9,7 +9,6 @@ import {
   UserCheck,
   GlassWater,
   CalendarDays,
-  TrendingUp,
 } from 'lucide-react'
 import type { LPContent } from '../types/index.ts'
 
