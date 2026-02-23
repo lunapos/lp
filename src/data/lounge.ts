@@ -4,9 +4,7 @@ import {
   Clock,
   BarChart3,
   Users,
-  Gem,
   Calculator,
-  UserCheck,
   GlassWater,
   CalendarDays,
 } from 'lucide-react'
@@ -18,7 +16,7 @@ export const loungeContent: LPContent = {
   meta: {
     title: 'LunaPos | ラウンジ向けPOSシステム',
     description:
-      'ラウンジ経営に特化したPOSシステム。接客品質を落とさずに、指名管理・会計・顧客管理をスマートに。上質な空間づくりをテクノロジーで支援します。',
+      'ラウンジ経営に特化したPOSシステム。接客品質を落とさずに、指名管理・会計・売上管理をスマートに。上質な空間づくりをテクノロジーで支援します。',
   },
   hero: {
     headline: 'ラウンジの品格を、\nそのままデジタルに',
@@ -51,10 +49,10 @@ export const loungeContent: LPContent = {
   ],
   features: [
     {
-      icon: Gem,
-      title: 'VIP顧客管理',
+      icon: BarChart3,
+      title: '売上分析・レポート',
       description:
-        'お客様の来店履歴・好みのお酒・担当ホステスを一元管理。VIPランク設定で常連のお客様に最高のおもてなしを提供し、リピート率の向上に貢献します。',
+        '日次・月次の売上推移やスタッフ別売上をリアルタイムで可視化。データに基づいた経営判断で、店舗の売上アップに貢献します。',
     },
     {
       icon: Crown,
@@ -75,7 +73,7 @@ export const loungeContent: LPContent = {
         'ボトルキープの在庫・残量・保管期限を管理。来店時にスムーズにご提供でき、期限切れ前の自動通知でお客様への案内も忘れません。',
     },
     {
-      icon: UserCheck,
+      icon: Crown,
       title: 'ホステス実績管理',
       description:
         '指名数・売上・同伴数をホステスごとに自動集計。日次・週次・月次の実績を可視化し、適正な評価とモチベーション向上を支援します。',
@@ -92,7 +90,7 @@ export const loungeContent: LPContent = {
     {
       question: '導入までどのくらいの期間がかかりますか？',
       answer:
-        'お申し込みから最短3営業日でご利用いただけます。初期設定はサポートチームが丁寧にサポートいたしますので、ITに詳しくない方でも安心して導入できます。',
+        'お申し込みから最短3営業日でご利用いただけます。直感的な操作画面で、ITに詳しくない方でもすぐにお使いいただけます。',
     },
     {
       question: 'データのエクスポートはできますか？',

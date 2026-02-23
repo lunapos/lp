@@ -9,7 +9,7 @@ const includedFeatures = [
   '指名管理・会計管理',
   'シフト管理',
   '売上レポート',
-  '顧客管理',
+  '売上レポート・分析',
 ]
 
 interface PricingSectionProps {

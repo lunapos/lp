@@ -6,7 +6,6 @@ import {
   Database,
   Crown,
   Calculator,
-  UserCheck,
   Zap,
   Trophy,
   CalendarDays,
@@ -47,7 +46,7 @@ export const cabaretContent: LPContent = {
     },
     {
       icon: Database,
-      text: '顧客情報がバラバラで、接客に活かせていない',
+      text: '売上データがバラバラで、経営判断に活かせていない',
     },
   ],
   features: [
@@ -64,10 +63,10 @@ export const cabaretContent: LPContent = {
         '時間制セット・延長・指名料・ドリンクを自動計算。複雑な料金体系もシステムが正確に処理し、会計ミスをゼロにします。',
     },
     {
-      icon: UserCheck,
-      title: '顧客管理・VIPランク',
+      icon: BarChart3,
+      title: '売上分析・レポート',
       description:
-        '来店履歴・好み・担当キャストを一元管理。VIPランク設定で常連のお客様に最高のおもてなしを提供できます。',
+        '日次・月次の売上推移やキャスト別売上をリアルタイムで可視化。データに基づいた経営判断で、店舗の売上アップをサポートします。',
     },
     {
       icon: Zap,
@@ -93,7 +92,7 @@ export const cabaretContent: LPContent = {
     {
       question: '導入までどのくらいの期間がかかりますか？',
       answer:
-        'お申し込みから最短3営業日でご利用いただけます。初期設定はサポートチームが丁寧にサポートいたしますので、ITに詳しくない方でも安心して導入できます。',
+        'お申し込みから最短3営業日でご利用いただけます。直感的な操作画面で、ITに詳しくない方でもすぐにお使いいただけます。',
     },
     {
       question: 'データのエクスポートはできますか？',
