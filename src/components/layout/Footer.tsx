@@ -92,38 +92,32 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Company & Info */}
+          {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">LunaPos</h3>
+            <h3 className="text-white font-semibold mb-4">お問い合わせ</h3>
             <ul className="flex flex-col gap-2">
               <li>
                 <a
-                  href="https://lunapos.jp"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:info@lunapos.jp"
                   className="text-gray-400 text-sm hover:text-white transition-colors duration-200"
                 >
-                  ロードマップ
+                  一般窓口: info@lunapos.jp
                 </a>
               </li>
               <li>
                 <a
-                  href="https://lunapos.jp/company"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:sales@lunapos.jp"
                   className="text-gray-400 text-sm hover:text-white transition-colors duration-200"
                 >
-                  運営会社
+                  導入相談: sales@lunapos.jp
                 </a>
               </li>
               <li>
                 <a
-                  href="https://lunapos.jp/contact"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:support@lunapos.jp"
                   className="text-gray-400 text-sm hover:text-white transition-colors duration-200"
                 >
-                  お問い合わせ
+                  サポート: support@lunapos.jp
                 </a>
               </li>
             </ul>
@@ -132,6 +126,14 @@ function Footer() {
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-[#2e2e50] text-center pb-16">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <a
+              href="mailto:privacy@lunapos.jp"
+              className="text-gray-500 text-xs hover:text-gray-300 transition-colors duration-200"
+            >
+              プライバシーに関するお問い合わせ
+            </a>
+          </div>
           <p className="text-gray-500 text-sm">
             &copy; 2026 LunaPos. All rights reserved.
           </p>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MessageCircle } from 'lucide-react'
+import { MessageCircle, Mail } from 'lucide-react'
 import { useTheme } from '../../hooks/useTheme.ts'
 import Section from '../layout/Section.tsx'
 import Button from '../ui/Button.tsx'
@@ -192,10 +192,14 @@ export default function CTASection({ headline, subheadline, waitlist }: CTASecti
 
         {/* External contact links - non-waitlist only */}
         {!waitlist && (
-          <div className="flex items-center justify-center mt-8 pt-8 border-t border-[#2e2e50]">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 pt-8 border-t border-[#2e2e50]">
             <Button variant="secondary" href={LINE_URL} className="gap-2">
               <MessageCircle size={18} />
               LINE問い合わせ
+            </Button>
+            <Button variant="secondary" href="mailto:contact@lunapos.jp" className="gap-2">
+              <Mail size={18} />
+              メールで問い合わせ
             </Button>
           </div>
         )}
