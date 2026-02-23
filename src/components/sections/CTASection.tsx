@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import { MessageCircle, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import { useTheme } from '../../hooks/useTheme.ts'
 import Section from '../layout/Section.tsx'
 import Button from '../ui/Button.tsx'
-
-const LINE_URL = '#'
 
 interface CTASectionProps {
   headline: string
@@ -12,9 +10,9 @@ interface CTASectionProps {
   waitlist?: boolean
 }
 
-export default function CTASection({ headline, subheadline, waitlist }: CTASectionProps) {
+export default function CTASection({ headline, subheadline }: CTASectionProps) {
   const theme = useTheme()
-  const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
   const [form, setForm] = useState({
     storeName: '',
     name: '',
@@ -29,9 +27,22 @@ export default function CTASection({ headline, subheadline, waitlist }: CTASecti
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setStatus('sending')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      if (!res.ok) throw new Error()
+      setStatus('sent')
+    } catch {
+      setStatus('error')
+    }
   }
 
   const inputClasses =
@@ -64,22 +75,7 @@ export default function CTASection({ headline, subheadline, waitlist }: CTASecti
           <p className="text-[#9090bb] text-lg">{subheadline}</p>
         </div>
 
-        {waitlist ? (
-          <div className="text-center">
-            <Button
-              variant="primary"
-              size="lg"
-              href={LINE_URL}
-              className="gap-3 px-10"
-            >
-              <MessageCircle size={20} />
-              公式LINEで登録する
-            </Button>
-            <p className="text-xs text-[#9090bb] mt-4">
-              公式LINEを友だち追加して、ウェイティングリストにご登録ください
-            </p>
-          </div>
-        ) : submitted ? (
+        {status === 'sent' ? (
           <div className="text-center py-12">
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6"
@@ -184,23 +180,28 @@ export default function CTASection({ headline, subheadline, waitlist }: CTASecti
               />
             </div>
 
+            {status === 'error' && (
+              <p className="text-red-400 text-sm text-center">
+                送信に失敗しました。時間をおいて再度お試しください。
+              </p>
+            )}
+
             <Button variant="primary" size="lg" className="w-full mt-2">
-              無料で相談する
+              {status === 'sending' ? '送信中...' : '無料で相談する'}
             </Button>
           </form>
         )}
 
-        {/* External contact links - non-waitlist only */}
-        {!waitlist && (
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 pt-8 border-t border-[#2e2e50]">
-            <Button variant="secondary" href={LINE_URL} className="gap-2">
-              <MessageCircle size={18} />
-              LINE問い合わせ
-            </Button>
-            <Button variant="secondary" href="mailto:contact@lunapos.jp" className="gap-2">
-              <Mail size={18} />
-              メールで問い合わせ
-            </Button>
+        {/* Alternative contact */}
+        {status !== 'sent' && (
+          <div className="flex items-center justify-center mt-8 pt-8 border-t border-[#2e2e50]">
+            <a
+              href="mailto:contact@lunapos.jp"
+              className="inline-flex items-center gap-2 text-sm text-[#9090bb] hover:text-white transition-colors duration-200"
+            >
+              <Mail size={16} />
+              メールでのお問い合わせ: contact@lunapos.jp
+            </a>
           </div>
         )}
       </div>

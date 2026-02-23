@@ -98,26 +98,10 @@ function Footer() {
             <ul className="flex flex-col gap-2">
               <li>
                 <a
-                  href="mailto:info@lunapos.jp"
+                  href="mailto:contact@lunapos.jp"
                   className="text-gray-400 text-sm hover:text-white transition-colors duration-200"
                 >
-                  一般窓口: info@lunapos.jp
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:sales@lunapos.jp"
-                  className="text-gray-400 text-sm hover:text-white transition-colors duration-200"
-                >
-                  導入相談: sales@lunapos.jp
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:support@lunapos.jp"
-                  className="text-gray-400 text-sm hover:text-white transition-colors duration-200"
-                >
-                  サポート: support@lunapos.jp
+                  contact@lunapos.jp
                 </a>
               </li>
             </ul>
