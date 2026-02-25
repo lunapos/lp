@@ -111,7 +111,7 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm text-[var(--mode-text-secondary)] mb-1.5">お名前</label>
+                <label className="block text-sm text-[var(--mode-text-secondary)] mb-1.5">お名前<span className="text-red-500 ml-0.5">*</span></label>
                 <input
                   type="text"
                   name="name"
@@ -131,7 +131,7 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
                 />
               </div>
               <div>
-                <label className="block text-sm text-[var(--mode-text-secondary)] mb-1.5">店舗名</label>
+                <label className="block text-sm text-[var(--mode-text-secondary)] mb-1.5">店舗名<span className="text-red-500 ml-0.5">*</span></label>
                 <input
                   type="text"
                   name="venue"
@@ -152,7 +152,7 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
               </div>
             </div>
             <div>
-              <label className="block text-sm text-[var(--mode-text-secondary)] mb-1.5">ご感想・エピソード</label>
+              <label className="block text-sm text-[var(--mode-text-secondary)] mb-1.5">ご感想・エピソード<span className="text-red-500 ml-0.5">*</span></label>
               <textarea
                 name="message"
                 value={form.message}

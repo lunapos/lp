@@ -110,7 +110,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label className="block text-sm text-[var(--mode-text-secondary)] mb-2">
-                  店舗名
+                  店舗名<span className="text-red-500 ml-0.5">*</span>
                 </label>
                 <input
                   type="text"
@@ -126,7 +126,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
               </div>
               <div>
                 <label className="block text-sm text-[var(--mode-text-secondary)] mb-2">
-                  お名前
+                  お名前<span className="text-red-500 ml-0.5">*</span>
                 </label>
                 <input
                   type="text"
@@ -145,7 +145,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label className="block text-sm text-[var(--mode-text-secondary)] mb-2">
-                  メールアドレス
+                  メールアドレス<span className="text-red-500 ml-0.5">*</span>
                 </label>
                 <input
                   type="email"
