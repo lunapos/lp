@@ -47,6 +47,11 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
 
       if (!res.ok) throw new Error()
       setStatus('sent')
+      window.gtag?.('event', 'generate_lead', {
+        event_category: 'contact',
+        event_label: '導入相談',
+        source: 'lp',
+      })
     } catch {
       setStatus('error')
     }
