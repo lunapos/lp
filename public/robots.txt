@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lp.lunapos.jp/sitemap.xml
