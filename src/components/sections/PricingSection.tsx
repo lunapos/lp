@@ -1,20 +1,15 @@
-import { Check, Sparkles, ArrowRight } from 'lucide-react'
+import { Check, Sparkles, Gift } from 'lucide-react'
 import { useTheme } from '../../hooks/useTheme.ts'
 import Section from '../layout/Section.tsx'
 import SectionHeading from '../ui/SectionHeading.tsx'
 
-const FREE_FEATURES = [
+const FEATURES = [
   '指名管理・会計管理',
   'シフト管理',
   '売上レポート',
   '顧客管理',
   'キャストアプリ',
   '管理画面',
-]
-
-const PRO_FEATURES = [
-  'Freeの全機能',
-  '会計数無制限',
 ]
 
 interface PricingSectionProps {
@@ -29,59 +24,26 @@ export default function PricingSection({ waitlist: _waitlist }: PricingSectionPr
       <SectionHeading
         title="料金プラン"
         subtitle="PRICING"
-        description="最初の500会計は無料。そのあと月額¥30,000。"
+        description="迷わせない、ワンプラン。最初の500会計は無料です。"
       />
 
-      <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-6">
-        {/* Free Plan */}
-        <div className="bg-[#141430] border border-[#2e2e50] rounded-xl p-8">
-          <div className="text-center mb-6">
-            <p className="text-[#9090bb] text-sm font-medium mb-2">Free</p>
-            <div className="flex items-baseline justify-center gap-1 mb-2">
-              <span className="text-5xl font-bold text-white">¥0</span>
-            </div>
-            <p className="text-[#9090bb] text-sm">
-              累計500会計まで無料。全機能をお使いいただけます。
-            </p>
-          </div>
-
-          <ul className="flex flex-col gap-3 mb-6">
-            {FREE_FEATURES.map((feature, i) => (
-              <li key={i} className="flex items-center gap-3 text-white">
-                <Check
-                  size={18}
-                  className="shrink-0"
-                  style={{ color: theme.accent }}
-                />
-                <span className="text-sm">{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Pro Plan */}
+      <div className="max-w-lg mx-auto">
         <div
-          className="bg-[#141430] border-2 rounded-xl p-8 relative"
+          className="bg-[#141430] border-2 rounded-xl p-8"
           style={{
             borderColor: theme.accent,
             boxShadow: `0 0 30px rgba(${theme.accentRGB}, 0.15)`,
           }}
         >
           <div className="text-center mb-6">
-            <p className="text-sm font-medium mb-2" style={{ color: theme.accent }}>
-              Pro
-            </p>
             <div className="flex items-baseline justify-center gap-1 mb-2">
               <span className="text-5xl font-bold text-white">¥30,000</span>
               <span className="text-[#9090bb] text-lg">/月（税込）</span>
             </div>
-            <p className="text-[#9090bb] text-sm">
-              累計500会計を超えたら月額制に移行。機能はFreeと同じです。
-            </p>
           </div>
 
           <ul className="flex flex-col gap-3 mb-6">
-            {PRO_FEATURES.map((feature, i) => (
+            {FEATURES.map((feature, i) => (
               <li key={i} className="flex items-center gap-3 text-white">
                 <Check
                   size={18}
@@ -92,6 +54,23 @@ export default function PricingSection({ waitlist: _waitlist }: PricingSectionPr
               </li>
             ))}
           </ul>
+
+          {/* Free Note */}
+          <div
+            className="rounded-xl p-4 text-left mb-4"
+            style={{
+              background: `rgba(${theme.accentRGB}, 0.06)`,
+              border: `1px solid rgba(${theme.accentRGB}, 0.15)`,
+            }}
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <Gift size={16} style={{ color: theme.accent }} />
+              <span className="text-sm font-bold text-white">まずは無料で始められます</span>
+            </div>
+            <p className="text-xs text-[#9090bb] leading-relaxed">
+              最初の500会計（累計）は無料。全機能がそのまま使えます。
+            </p>
+          </div>
 
           {/* AI Note */}
           <div
@@ -109,27 +88,6 @@ export default function PricingSection({ waitlist: _waitlist }: PricingSectionPr
               売上予測・シフト最適化・顧客分析など、AIを活用した機能を順次リリース予定です。AI機能のご利用には追加料金が発生する場合があります。
             </p>
           </div>
-        </div>
-      </div>
-
-      {/* Flow description */}
-      <div className="max-w-2xl mx-auto mt-8 text-center">
-        <div className="inline-flex items-center gap-3 text-[#9090bb] text-sm">
-          <span className="bg-[#141430] border border-[#2e2e50] rounded-lg px-3 py-1.5">導入（¥0）</span>
-          <ArrowRight size={16} />
-          <span className="bg-[#141430] border border-[#2e2e50] rounded-lg px-3 py-1.5">500会計まで無料で利用</span>
-          <ArrowRight size={16} />
-          <span
-            className="bg-[#141430] rounded-lg px-3 py-1.5"
-            style={{
-              borderWidth: 1,
-              borderStyle: 'solid',
-              borderColor: `rgba(${theme.accentRGB}, 0.5)`,
-              color: theme.accent,
-            }}
-          >
-            501会計目からPro（月額¥30,000）
-          </span>
         </div>
       </div>
     </Section>
