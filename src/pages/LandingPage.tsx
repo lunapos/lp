@@ -10,6 +10,7 @@ import PricingSection from '../components/sections/PricingSection.tsx'
 import CaseStudySection from '../components/sections/CaseStudySection.tsx'
 import FAQSection from '../components/sections/FAQSection.tsx'
 import CTASection from '../components/sections/CTASection.tsx'
+import NewsSection from '../components/sections/NewsSection.tsx'
 import type { LPContent } from '../types/index.ts'
 
 interface LandingPageProps {
@@ -69,8 +70,9 @@ export default function LandingPage({ content, waitlist }: LandingPageProps) {
         <ProblemsSection painPoints={content.painPoints} />
         <FeaturesSection features={content.features} />
         <ScreenshotsSection />
-        <PricingSection waitlist={waitlist} />
+        <PricingSection />
         <CaseStudySection testimonials={content.testimonials} waitlist={waitlist} />
+        <NewsSection />
         <FAQSection faqs={content.faqs} />
         <CTASection
           headline={content.cta.headline}
@@ -95,7 +97,7 @@ export default function LandingPage({ content, waitlist }: LandingPageProps) {
       >
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <p className="hidden sm:block text-sm text-[#9090bb]">
-            {waitlist ? '順次公開予定 - 公式LINEで受付中' : '1ヶ月の無料トライアル実施中'}
+            {waitlist ? '順次公開予定 - 公式LINEで受付中' : '累計500会計まで無料でお試しいただけます'}
           </p>
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <a
