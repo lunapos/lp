@@ -22,6 +22,8 @@ export default function ColorModeProvider({ children }: { children: React.ReactN
     root.style.setProperty('--mode-text-muted', colors.textMuted)
     root.style.setProperty('--mode-border', colors.border)
     root.style.setProperty('--mode-input-bg', colors.inputBg)
+    root.style.setProperty('--mode-accent', mode === 'dark' ? '#d4b870' : '#b8982e')
+    root.style.setProperty('--mode-accent-rgb', mode === 'dark' ? '212,184,112' : '184,152,46')
 
     document.body.style.backgroundColor = colors.bg
     document.body.style.color = colors.textPrimary
