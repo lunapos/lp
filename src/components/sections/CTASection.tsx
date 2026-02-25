@@ -32,7 +32,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
     setStatus('sending')
 
     try {
-      const res = await fetch('https://lunapos.jp/api/contact', {
+      const res = await fetch('https://www.lunapos.jp/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
