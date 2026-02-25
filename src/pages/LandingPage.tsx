@@ -70,7 +70,7 @@ export default function LandingPage({ content, waitlist }: LandingPageProps) {
         <ProblemsSection painPoints={content.painPoints} />
         <FeaturesSection features={content.features} />
         <ScreenshotsSection />
-        <PricingSection />
+        <PricingSection waitlist={waitlist} />
         <CaseStudySection testimonials={content.testimonials} waitlist={waitlist} />
         <NewsSection />
         <FAQSection faqs={content.faqs} />

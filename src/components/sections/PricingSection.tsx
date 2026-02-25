@@ -17,7 +17,11 @@ const PRO_FEATURES = [
   '会計数無制限',
 ]
 
-export default function PricingSection() {
+interface PricingSectionProps {
+  waitlist?: boolean
+}
+
+export default function PricingSection({ waitlist: _waitlist }: PricingSectionProps) {
   const theme = useTheme()
 
   return (
