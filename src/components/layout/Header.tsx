@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { X } from 'lucide-react'
 import { useTheme } from '../../hooks/useTheme.ts'
 import ThemeToggle from '../ui/ThemeToggle.tsx'
 
@@ -16,6 +17,13 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const theme = useTheme()
 
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMenuOpen])
+
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
@@ -30,62 +38,86 @@ function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--mode-bg)]/90 backdrop-blur-md border-b border-[var(--mode-border)]">
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 text-xl font-bold">
-          <img src="/icon.png" alt="LunaPos" width={24} height={24} />
-          <span style={{ color: theme.accent }}>LunaPos</span>
-        </Link>
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--mode-bg)]/90 backdrop-blur-md border-b border-[var(--mode-border)]">
+        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 text-xl font-bold">
+            <img src="/icon.png" alt="LunaPos" width={24} height={24} />
+            <span style={{ color: theme.accent }}>LunaPos</span>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={(e) => handleSmoothScroll(e, item.href)}
-              className="text-sm text-[var(--mode-text-secondary)] hover:text-[var(--mode-text-primary)] transition-colors duration-200"
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
+                className="text-sm text-[var(--mode-text-secondary)] hover:text-[var(--mode-text-primary)] transition-colors duration-200"
+              >
+                {item.label}
+              </a>
+            ))}
+            <ThemeToggle />
+          </nav>
+
+          {/* Mobile: Theme Toggle + Hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              type="button"
+              className="flex flex-col items-center justify-center gap-1.5 w-10 h-10"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
+              aria-expanded={isMenuOpen}
             >
-              {item.label}
-            </a>
-          ))}
-          <ThemeToggle />
-        </nav>
+              <span
+                className={`block w-6 h-0.5 bg-[var(--mode-text-secondary)] transition-transform duration-300 ${
+                  isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
+              />
+              <span
+                className={`block w-6 h-0.5 bg-[var(--mode-text-secondary)] transition-opacity duration-300 ${
+                  isMenuOpen ? 'opacity-0' : ''
+                }`}
+              />
+              <span
+                className={`block w-6 h-0.5 bg-[var(--mode-text-secondary)] transition-transform duration-300 ${
+                  isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
+              />
+            </button>
+          </div>
+        </div>
+      </header>
 
-        {/* Mobile Hamburger Button */}
-        <button
-          type="button"
-          className="md:hidden flex flex-col items-center justify-center gap-1.5 w-10 h-10"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
-          aria-expanded={isMenuOpen}
-        >
-          <span
-            className={`block w-6 h-0.5 bg-[var(--mode-text-secondary)] transition-transform duration-300 ${
-              isMenuOpen ? 'rotate-45 translate-y-2' : ''
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-[var(--mode-text-secondary)] transition-opacity duration-300 ${
-              isMenuOpen ? 'opacity-0' : ''
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-[var(--mode-text-secondary)] transition-transform duration-300 ${
-              isMenuOpen ? '-rotate-45 -translate-y-2' : ''
-            }`}
-          />
-        </button>
-      </div>
+      {/* Mobile Overlay - outside header to avoid stacking context issues */}
+      {isMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black/50 z-[60]"
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
-      {/* Mobile Slide-in Panel */}
+      {/* Mobile Slide-in Panel - outside header */}
       <div
-        className={`md:hidden fixed top-16 right-0 h-[calc(100vh-4rem)] w-64 z-50 bg-[var(--mode-bg)]/95 backdrop-blur-md border-l border-[var(--mode-border)] transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed top-0 right-0 bottom-0 w-64 z-[70] pt-16 bg-[var(--mode-bg)]/95 backdrop-blur-md border-l border-[var(--mode-border)] transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <nav className="flex flex-col p-6 gap-4">
+        <div className="flex justify-end px-4 pt-2">
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(false)}
+            className="p-2 rounded-lg text-[var(--mode-text-secondary)] hover:text-[var(--mode-accent)] transition-colors"
+            aria-label="メニューを閉じる"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+        <nav className="flex flex-col px-6 pb-6 gap-4">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -96,21 +128,9 @@ function Header() {
               {item.label}
             </a>
           ))}
-          <div className="pt-2">
-            <ThemeToggle />
-          </div>
         </nav>
       </div>
-
-      {/* Mobile Overlay */}
-      {isMenuOpen && (
-        <div
-          className="md:hidden fixed inset-0 top-16 bg-black/50 z-40"
-          onClick={() => setIsMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-    </header>
+    </>
   )
 }
 
