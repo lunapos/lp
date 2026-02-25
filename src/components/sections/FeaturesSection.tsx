@@ -24,8 +24,8 @@ export default function FeaturesSection({ features }: FeaturesSectionProps) {
           >
             <Card hover className="flex flex-col gap-4 h-full">
               <FeatureIcon icon={feature.icon} />
-              <h3 className="text-lg font-bold text-white">{feature.title}</h3>
-              <p className="text-[#9090bb] leading-relaxed">{feature.description}</p>
+              <h3 className="text-lg font-bold text-[var(--mode-text-primary)]">{feature.title}</h3>
+              <p className="text-[var(--mode-text-secondary)] leading-relaxed">{feature.description}</p>
             </Card>
           </div>
         ))}

@@ -58,3 +58,15 @@ export interface LPContent {
     subheadline: string
   }
 }
+
+export type ColorMode = 'dark' | 'light'
+
+export interface ModeColors {
+  bg: string
+  surface: string
+  textPrimary: string
+  textSecondary: string
+  textMuted: string
+  border: string
+  inputBg: string
+}

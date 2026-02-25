@@ -1,9 +1,11 @@
 import { useTheme } from '../../hooks/useTheme.ts'
 import Section from '../layout/Section.tsx'
 import SectionHeading from '../ui/SectionHeading.tsx'
+import { useColorMode } from '../../hooks/useColorMode.ts'
 
 export default function ScreenshotsSection() {
   const theme = useTheme()
+  const { colors } = useColorMode()
 
   return (
     <Section id="screenshots">
@@ -17,7 +19,7 @@ export default function ScreenshotsSection() {
               aspectRatio: '4 / 3',
               borderRadius: 24,
               border: `2px solid ${theme.accent}`,
-              background: '#0a0a18',
+              background: colors.bg,
               boxShadow: `0 0 60px rgba(${theme.accentRGB}, 0.2), 0 0 120px rgba(${theme.accentRGB}, 0.08)`,
               padding: 12,
             }}
@@ -25,26 +27,27 @@ export default function ScreenshotsSection() {
             {/* Camera dot */}
             <div
               className="absolute top-3 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full"
-              style={{ background: '#2e2e50' }}
+              style={{ background: colors.border }}
             />
 
             {/* Screen */}
             <div
               className="w-full h-full rounded-2xl overflow-hidden flex flex-col"
-              style={{ background: '#141430' }}
+              style={{ background: colors.surface }}
             >
               {/* Top bar */}
               <div className="flex items-center justify-between px-5 pt-4 pb-2">
-                <span className="text-xs text-[#9090bb]">21:30</span>
+                <span className="text-xs text-[var(--mode-text-secondary)]">21:30</span>
                 <span
-                  className="text-sm font-bold tracking-wider"
+                  className="text-sm font-bold tracking-wider inline-flex items-center gap-1"
                   style={{ color: theme.accent }}
                 >
-                  ☽ LunaPos
+                  <img src="/icon.png" alt="" width={14} height={14} />
+                  LunaPos
                 </span>
                 <div className="flex gap-1.5 items-center">
                   <div className="w-4 h-2 rounded-sm" style={{ background: theme.accent }} />
-                  <div className="w-2 h-2 rounded-full bg-[#9090bb]" />
+                  <div className="w-2 h-2 rounded-full bg-[var(--mode-text-secondary)]" />
                 </div>
               </div>
 
@@ -53,7 +56,7 @@ export default function ScreenshotsSection() {
                 {/* Sales header */}
                 <div className="flex items-end justify-between">
                   <div>
-                    <p className="text-[11px] text-[#9090bb]">本日の売上</p>
+                    <p className="text-[11px] text-[var(--mode-text-secondary)]">本日の売上</p>
                     <p
                       className="text-3xl font-bold"
                       style={{ color: theme.accent }}
@@ -62,7 +65,7 @@ export default function ScreenshotsSection() {
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-[11px] text-[#9090bb]">前日比</p>
+                    <p className="text-[11px] text-[var(--mode-text-secondary)]">前日比</p>
                     <p className="text-sm font-bold text-emerald-400">+12.5%</p>
                   </div>
                 </div>
@@ -78,17 +81,17 @@ export default function ScreenshotsSection() {
                     <div
                       key={i}
                       className="rounded-lg p-2 text-center"
-                      style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid #2e2e50' }}
+                      style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${colors.border}` }}
                     >
-                      <p className="text-[9px] text-[#9090bb]">{stat.label}</p>
-                      <p className="text-sm font-bold text-white">{stat.value}</p>
+                      <p className="text-[9px] text-[var(--mode-text-secondary)]">{stat.label}</p>
+                      <p className="text-sm font-bold text-[var(--mode-text-primary)]">{stat.value}</p>
                     </div>
                   ))}
                 </div>
 
                 {/* Table list */}
                 <div className="flex-1">
-                  <p className="text-[11px] text-[#9090bb] mb-2">テーブル状況</p>
+                  <p className="text-[11px] text-[var(--mode-text-secondary)] mb-2">テーブル状況</p>
                   <div className="grid grid-cols-2 gap-2">
                     {[
                       { table: 'VIP 1', status: '利用中', time: '20:15〜', amount: '¥48,000' },
@@ -101,20 +104,20 @@ export default function ScreenshotsSection() {
                       <div
                         key={i}
                         className="flex items-center justify-between rounded-lg px-3 py-2"
-                        style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid #2e2e50' }}
+                        style={{ background: 'rgba(255,255,255,0.02)', border: `1px solid ${colors.border}` }}
                       >
                         <div className="flex items-center gap-2">
                           <div
                             className="w-2 h-2 rounded-full"
                             style={{
-                              background: row.status === '利用中' ? theme.accent : '#2e2e50',
+                              background: row.status === '利用中' ? theme.accent : colors.border,
                             }}
                           />
-                          <span className="text-xs text-white">{row.table}</span>
+                          <span className="text-xs text-[var(--mode-text-primary)]">{row.table}</span>
                         </div>
                         <span
                           className="text-[11px] font-medium"
-                          style={{ color: row.amount ? theme.accentLight : '#2e2e50' }}
+                          style={{ color: row.amount ? theme.accentLight : colors.border }}
                         >
                           {row.amount || '---'}
                         </span>
@@ -125,18 +128,18 @@ export default function ScreenshotsSection() {
               </div>
 
               {/* Bottom nav */}
-              <div className="flex items-center justify-around py-3 border-t border-[#2e2e50]">
+              <div className="flex items-center justify-around py-3 border-t border-[var(--mode-border)]">
                 {['ホーム', '伝票', 'テーブル', 'キャスト', '分析'].map((label, i) => (
                   <div key={i} className="flex flex-col items-center gap-0.5">
                     <div
                       className="w-5 h-5 rounded"
                       style={{
-                        background: i === 0 ? theme.accent : '#2e2e50',
+                        background: i === 0 ? theme.accent : colors.border,
                       }}
                     />
                     <span
                       className="text-[9px]"
-                      style={{ color: i === 0 ? theme.accent : '#9090bb' }}
+                      style={{ color: i === 0 ? theme.accent : colors.textSecondary }}
                     >
                       {label}
                     </span>
@@ -159,13 +162,13 @@ export default function ScreenshotsSection() {
 
         {/* Caption text */}
         <div className="text-center">
-          <p className="text-lg font-bold text-white mb-2">
+          <p className="text-lg font-bold text-[var(--mode-text-primary)] mb-2">
             iPad・タブレット対応
           </p>
-          <p className="text-[#9090bb]">
+          <p className="text-[var(--mode-text-secondary)]">
             いつでもどこでも、お店の状況を確認
           </p>
-          <p className="text-[#9090bb]/50 text-xs mt-2">
+          <p className="text-[var(--mode-text-muted)]/50 text-xs mt-2">
             ※ 画面はイメージです。実際の画面とは異なる場合があります。
           </p>
         </div>

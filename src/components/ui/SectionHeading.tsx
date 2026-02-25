@@ -19,7 +19,7 @@ export default function SectionHeading({ title, subtitle, description }: Section
           {subtitle}
         </p>
       )}
-      <h2 className="text-3xl md:text-4xl font-bold text-white">{title}</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-[var(--mode-text-primary)]">{title}</h2>
       <div
         className="mx-auto mt-4 h-1 w-16 rounded-full"
         style={{
@@ -27,7 +27,7 @@ export default function SectionHeading({ title, subtitle, description }: Section
         }}
       />
       {description && (
-        <p className="mt-4 text-[#9090bb] text-base">{description}</p>
+        <p className="mt-4 text-[var(--mode-text-secondary)] text-base">{description}</p>
       )}
     </div>
   )

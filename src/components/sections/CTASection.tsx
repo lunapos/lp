@@ -58,7 +58,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
   }
 
   const inputClasses =
-    'w-full bg-[#0a0a18] border border-[#2e2e50] rounded-xl px-4 py-3 text-white placeholder-[#9090bb]/50 transition-colors duration-300 outline-none'
+    'w-full bg-[var(--mode-input-bg)] border border-[var(--mode-border)] rounded-xl px-4 py-3 text-[var(--mode-text-primary)] placeholder-[var(--mode-text-secondary)]/50 transition-colors duration-300 outline-none'
 
   const focusStyle = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     e.currentTarget.style.borderColor = theme.accent
@@ -66,7 +66,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
   }
 
   const blurStyle = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    e.currentTarget.style.borderColor = '#2e2e50'
+    e.currentTarget.style.borderColor = 'var(--mode-border)'
     e.currentTarget.style.boxShadow = 'none'
   }
 
@@ -81,10 +81,10 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
       >
         {/* Headline */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 whitespace-pre-line">
+          <h2 className="text-3xl md:text-4xl font-bold text-[var(--mode-text-primary)] mb-4 whitespace-pre-line">
             {headline}
           </h2>
-          <p className="text-[#9090bb] text-lg">{subheadline}</p>
+          <p className="text-[var(--mode-text-secondary)] text-lg">{subheadline}</p>
         </div>
 
         {status === 'sent' ? (
@@ -95,10 +95,10 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
             >
               <span className="text-3xl">✓</span>
             </div>
-            <p className="text-2xl font-bold text-white mb-2">
+            <p className="text-2xl font-bold text-[var(--mode-text-primary)] mb-2">
               お問い合わせありがとうございます
             </p>
-            <p className="text-[#9090bb]">
+            <p className="text-[var(--mode-text-secondary)]">
               担当者より折り返しご連絡いたします。
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label className="block text-sm text-[#9090bb] mb-2">
+                <label className="block text-sm text-[var(--mode-text-secondary)] mb-2">
                   店舗名
                 </label>
                 <input
@@ -125,7 +125,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
                 />
               </div>
               <div>
-                <label className="block text-sm text-[#9090bb] mb-2">
+                <label className="block text-sm text-[var(--mode-text-secondary)] mb-2">
                   お名前
                 </label>
                 <input
@@ -144,7 +144,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label className="block text-sm text-[#9090bb] mb-2">
+                <label className="block text-sm text-[var(--mode-text-secondary)] mb-2">
                   メールアドレス
                 </label>
                 <input
@@ -160,7 +160,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
                 />
               </div>
               <div>
-                <label className="block text-sm text-[#9090bb] mb-2">
+                <label className="block text-sm text-[var(--mode-text-secondary)] mb-2">
                   電話番号
                 </label>
                 <input
@@ -177,7 +177,7 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
             </div>
 
             <div>
-              <label className="block text-sm text-[#9090bb] mb-2">
+              <label className="block text-sm text-[var(--mode-text-secondary)] mb-2">
                 メッセージ
               </label>
               <textarea
@@ -206,10 +206,10 @@ export default function CTASection({ headline, subheadline }: CTASectionProps) {
 
         {/* Alternative contact */}
         {status !== 'sent' && (
-          <div className="flex items-center justify-center mt-8 pt-8 border-t border-[#2e2e50]">
+          <div className="flex items-center justify-center mt-8 pt-8 border-t border-[var(--mode-border)]">
             <a
               href="mailto:contact@lunapos.jp"
-              className="inline-flex items-center gap-2 text-sm text-[#9090bb] hover:text-white transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-sm text-[var(--mode-text-secondary)] hover:text-[var(--mode-text-primary)] transition-colors duration-200"
             >
               <Mail size={16} />
               メールでのお問い合わせ: contact@lunapos.jp

@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom'
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen bg-[#0e0e1a] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[var(--mode-bg)] flex items-center justify-center px-4">
       <div className="text-center">
         <p className="text-[#d4b870] text-lg font-medium mb-2">404</p>
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-[var(--mode-text-primary)] mb-4">
           ページが見つかりません
         </h1>
-        <p className="text-[#9090bb] mb-8">
+        <p className="text-[var(--mode-text-secondary)] mb-8">
           お探しのページは存在しないか、移動した可能性があります。
         </p>
         <Link

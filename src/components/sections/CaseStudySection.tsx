@@ -29,7 +29,7 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
   }
 
   const inputClasses =
-    'w-full bg-[#0a0a18] border border-[#2e2e50] rounded-xl px-4 py-3 text-white placeholder-[#9090bb]/50 transition-colors duration-300 outline-none'
+    'w-full bg-[var(--mode-input-bg)] border border-[var(--mode-border)] rounded-xl px-4 py-3 text-[var(--mode-text-primary)] placeholder-[var(--mode-text-secondary)]/50 transition-colors duration-300 outline-none'
 
   return (
     <Section id="case-studies">
@@ -44,7 +44,7 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
                 className="mb-4 opacity-60"
                 style={{ color: theme.accent }}
               />
-              <p className="text-white italic leading-relaxed mb-6 flex-1">
+              <p className="text-[var(--mode-text-primary)] italic leading-relaxed mb-6 flex-1">
                 {testimonial.quote}
               </p>
               <div
@@ -55,8 +55,8 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
               />
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-bold text-white">{testimonial.name}</p>
-                  <p className="text-sm text-[#9090bb]">
+                  <p className="font-bold text-[var(--mode-text-primary)]">{testimonial.name}</p>
+                  <p className="text-sm text-[var(--mode-text-secondary)]">
                     {testimonial.role} / {testimonial.venue}
                   </p>
                 </div>
@@ -89,21 +89,21 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
           className="mx-auto mb-4 opacity-70"
           style={{ color: theme.accent }}
         />
-        <h3 className="text-xl font-bold text-white mb-2">
+        <h3 className="text-xl font-bold text-[var(--mode-text-primary)] mb-2">
           ご利用中のお客様の声を募集しています
         </h3>
-        <p className="text-[#9090bb] text-sm mb-6">
+        <p className="text-[var(--mode-text-secondary)] text-sm mb-6">
           LunaPosをお使いの感想をお聞かせください。
         </p>
 
         {waitlist ? (
-          <p className="text-[#9090bb] text-sm">
+          <p className="text-[var(--mode-text-secondary)] text-sm">
             サービス開始後に募集を開始いたします。
           </p>
         ) : submitted ? (
           <div className="py-4">
-            <p className="text-white font-bold">ありがとうございます！</p>
-            <p className="text-[#9090bb] text-sm mt-1">
+            <p className="text-[var(--mode-text-primary)] font-bold">ありがとうございます！</p>
+            <p className="text-[var(--mode-text-secondary)] text-sm mt-1">
               担当者より折り返しご連絡いたします。
             </p>
           </div>
@@ -111,7 +111,7 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm text-[#9090bb] mb-1.5">お名前</label>
+                <label className="block text-sm text-[var(--mode-text-secondary)] mb-1.5">お名前</label>
                 <input
                   type="text"
                   name="name"
@@ -124,14 +124,14 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
                     e.currentTarget.style.boxShadow = `0 0 0 3px rgba(${theme.accentRGB}, 0.15)`
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#2e2e50'
+                    e.currentTarget.style.borderColor = 'var(--mode-border)'
                     e.currentTarget.style.boxShadow = 'none'
                   }}
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm text-[#9090bb] mb-1.5">店舗名</label>
+                <label className="block text-sm text-[var(--mode-text-secondary)] mb-1.5">店舗名</label>
                 <input
                   type="text"
                   name="venue"
@@ -144,7 +144,7 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
                     e.currentTarget.style.boxShadow = `0 0 0 3px rgba(${theme.accentRGB}, 0.15)`
                   }}
                   onBlur={(e) => {
-                    e.currentTarget.style.borderColor = '#2e2e50'
+                    e.currentTarget.style.borderColor = 'var(--mode-border)'
                     e.currentTarget.style.boxShadow = 'none'
                   }}
                   required
@@ -152,7 +152,7 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
               </div>
             </div>
             <div>
-              <label className="block text-sm text-[#9090bb] mb-1.5">ご感想・エピソード</label>
+              <label className="block text-sm text-[var(--mode-text-secondary)] mb-1.5">ご感想・エピソード</label>
               <textarea
                 name="message"
                 value={form.message}
@@ -165,7 +165,7 @@ export default function CaseStudySection({ testimonials, waitlist }: CaseStudySe
                   e.currentTarget.style.boxShadow = `0 0 0 3px rgba(${theme.accentRGB}, 0.15)`
                 }}
                 onBlur={(e) => {
-                  e.currentTarget.style.borderColor = '#2e2e50'
+                  e.currentTarget.style.borderColor = 'var(--mode-border)'
                   e.currentTarget.style.boxShadow = 'none'
                 }}
                 required

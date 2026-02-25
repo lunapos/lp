@@ -28,7 +28,7 @@ export default function ProblemsSection({ painPoints }: ProblemsSectionProps) {
           >
             <Card hover className="h-full flex flex-col items-center text-center gap-4">
               <FeatureIcon icon={point.icon} size={28} />
-              <p className="text-white font-medium leading-relaxed">{point.text}</p>
+              <p className="text-[var(--mode-text-primary)] font-medium leading-relaxed">{point.text}</p>
             </Card>
           </div>
         ))}
@@ -50,7 +50,7 @@ export default function ProblemsSection({ painPoints }: ProblemsSectionProps) {
               >
                 <Card hover className="h-full flex flex-col items-center text-center gap-4">
                   <FeatureIcon icon={point.icon} size={28} />
-                  <p className="text-white font-medium leading-relaxed">{point.text}</p>
+                  <p className="text-[var(--mode-text-primary)] font-medium leading-relaxed">{point.text}</p>
                 </Card>
               </div>
             )

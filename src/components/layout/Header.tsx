@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTheme } from '../../hooks/useTheme.ts'
+import ThemeToggle from '../ui/ThemeToggle.tsx'
 
 const navItems = [
   { label: '特徴', href: '#features' },
@@ -29,13 +30,11 @@ function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a18]/90 backdrop-blur-md border-b border-[#2e2e50]">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--mode-bg)]/90 backdrop-blur-md border-b border-[var(--mode-border)]">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 text-xl font-bold">
-          <span style={{ color: theme.accent }} className="text-2xl">
-            ☽
-          </span>
+          <img src="/icon.png" alt="LunaPos" width={24} height={24} />
           <span style={{ color: theme.accent }}>LunaPos</span>
         </Link>
 
@@ -46,11 +45,12 @@ function Header() {
               key={item.href}
               href={item.href}
               onClick={(e) => handleSmoothScroll(e, item.href)}
-              className="text-sm text-gray-300 hover:text-white transition-colors duration-200"
+              className="text-sm text-[var(--mode-text-secondary)] hover:text-[var(--mode-text-primary)] transition-colors duration-200"
             >
               {item.label}
             </a>
           ))}
+          <ThemeToggle />
         </nav>
 
         {/* Mobile Hamburger Button */}
@@ -62,17 +62,17 @@ function Header() {
           aria-expanded={isMenuOpen}
         >
           <span
-            className={`block w-6 h-0.5 bg-gray-300 transition-transform duration-300 ${
+            className={`block w-6 h-0.5 bg-[var(--mode-text-secondary)] transition-transform duration-300 ${
               isMenuOpen ? 'rotate-45 translate-y-2' : ''
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-gray-300 transition-opacity duration-300 ${
+            className={`block w-6 h-0.5 bg-[var(--mode-text-secondary)] transition-opacity duration-300 ${
               isMenuOpen ? 'opacity-0' : ''
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-gray-300 transition-transform duration-300 ${
+            className={`block w-6 h-0.5 bg-[var(--mode-text-secondary)] transition-transform duration-300 ${
               isMenuOpen ? '-rotate-45 -translate-y-2' : ''
             }`}
           />
@@ -81,7 +81,7 @@ function Header() {
 
       {/* Mobile Slide-in Panel */}
       <div
-        className={`md:hidden fixed top-16 right-0 h-[calc(100vh-4rem)] w-64 z-50 bg-[#0a0a18]/95 backdrop-blur-md border-l border-[#2e2e50] transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed top-16 right-0 h-[calc(100vh-4rem)] w-64 z-50 bg-[var(--mode-bg)]/95 backdrop-blur-md border-l border-[var(--mode-border)] transform transition-transform duration-300 ease-in-out ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -91,11 +91,14 @@ function Header() {
               key={item.href}
               href={item.href}
               onClick={(e) => handleSmoothScroll(e, item.href)}
-              className="text-gray-300 hover:text-white transition-colors duration-200 py-2 border-b border-[#2e2e50]"
+              className="text-[var(--mode-text-secondary)] hover:text-[var(--mode-text-primary)] transition-colors duration-200 py-2 border-b border-[var(--mode-border)]"
             >
               {item.label}
             </a>
           ))}
+          <div className="pt-2">
+            <ThemeToggle />
+          </div>
         </nav>
       </div>
 

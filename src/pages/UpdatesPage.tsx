@@ -22,25 +22,25 @@ function UpdatesPageContent() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#0e0e1a] text-white">
+    <div className="min-h-screen bg-[var(--mode-bg)] text-[var(--mode-text-primary)]">
       <Header />
       <main className="max-w-4xl mx-auto px-4 pt-28 pb-20">
         <Link
           to="/cabaret"
-          className="inline-flex items-center gap-1.5 text-sm text-[#9090bb] hover:text-white transition-colors duration-200 mb-8"
+          className="inline-flex items-center gap-1.5 text-sm text-[var(--mode-text-secondary)] hover:text-[var(--mode-text-primary)] transition-colors duration-200 mb-8"
         >
           <ArrowLeft size={14} />
           トップに戻る
         </Link>
 
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">開発アップデート</h1>
-        <p className="text-[#9090bb] mb-12">LunaPosの機能追加・改善履歴です。</p>
+        <h1 className="text-3xl md:text-4xl font-bold text-[var(--mode-text-primary)] mb-2">開発アップデート</h1>
+        <p className="text-[var(--mode-text-secondary)] mb-12">LunaPosの機能追加・改善履歴です。</p>
 
         <div className="flex flex-col gap-4">
           {updateItems.map((item) => (
             <Card key={item.id} hover>
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-sm text-[#9090bb]">{formatDate(item.date)}</span>
+                <span className="text-sm text-[var(--mode-text-secondary)]">{formatDate(item.date)}</span>
                 <span
                   className="text-xs px-2 py-0.5 rounded-full font-mono"
                   style={{
@@ -52,12 +52,12 @@ function UpdatesPageContent() {
                   {item.version}
                 </span>
               </div>
-              <h3 className="text-white font-bold leading-relaxed mb-3">
+              <h3 className="text-[var(--mode-text-primary)] font-bold leading-relaxed mb-3">
                 {item.title}
               </h3>
               <ul className="flex flex-col gap-2">
                 {item.changes.map((change, i) => (
-                  <li key={i} className="text-[#9090bb] text-sm leading-relaxed flex gap-2">
+                  <li key={i} className="text-[var(--mode-text-secondary)] text-sm leading-relaxed flex gap-2">
                     <span style={{ color: theme.accent }}>•</span>
                     <span>{change}</span>
                   </li>

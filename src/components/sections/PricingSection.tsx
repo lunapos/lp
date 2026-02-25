@@ -29,7 +29,7 @@ export default function PricingSection({ waitlist: _waitlist }: PricingSectionPr
 
       <div className="max-w-lg mx-auto">
         <div
-          className="bg-[#141430] border-2 rounded-xl p-8"
+          className="bg-[var(--mode-surface)] border-2 rounded-xl p-8"
           style={{
             borderColor: theme.accent,
             boxShadow: `0 0 30px rgba(${theme.accentRGB}, 0.15)`,
@@ -37,14 +37,14 @@ export default function PricingSection({ waitlist: _waitlist }: PricingSectionPr
         >
           <div className="text-center mb-6">
             <div className="flex items-baseline justify-center gap-1 mb-2">
-              <span className="text-5xl font-bold text-white">¥30,000</span>
-              <span className="text-[#9090bb] text-lg">/月（税込）</span>
+              <span className="text-5xl font-bold text-[var(--mode-text-primary)]">¥30,000</span>
+              <span className="text-[var(--mode-text-secondary)] text-lg">/月（税込）</span>
             </div>
           </div>
 
           <ul className="flex flex-col gap-3 mb-6">
             {FEATURES.map((feature, i) => (
-              <li key={i} className="flex items-center gap-3 text-white">
+              <li key={i} className="flex items-center gap-3 text-[var(--mode-text-primary)]">
                 <Check
                   size={18}
                   className="shrink-0"
@@ -65,9 +65,9 @@ export default function PricingSection({ waitlist: _waitlist }: PricingSectionPr
           >
             <div className="flex items-center gap-2 mb-2">
               <Gift size={16} style={{ color: theme.accent }} />
-              <span className="text-sm font-bold text-white">まずは無料で始められます</span>
+              <span className="text-sm font-bold text-[var(--mode-text-primary)]">まずは無料で始められます</span>
             </div>
-            <p className="text-xs text-[#9090bb] leading-relaxed">
+            <p className="text-xs text-[var(--mode-text-secondary)] leading-relaxed">
               最初の500会計（累計）は無料。全機能がそのまま使えます。
             </p>
           </div>
@@ -82,9 +82,9 @@ export default function PricingSection({ waitlist: _waitlist }: PricingSectionPr
           >
             <div className="flex items-center gap-2 mb-2">
               <Sparkles size={16} style={{ color: theme.accent }} />
-              <span className="text-sm font-bold text-white">AI機能を順次追加予定</span>
+              <span className="text-sm font-bold text-[var(--mode-text-primary)]">AI機能を順次追加予定</span>
             </div>
-            <p className="text-xs text-[#9090bb] leading-relaxed">
+            <p className="text-xs text-[var(--mode-text-secondary)] leading-relaxed">
               売上予測・シフト最適化・顧客分析など、AIを活用した機能を順次リリース予定です。AI機能のご利用には追加料金が発生する場合があります。
             </p>
           </div>

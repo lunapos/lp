@@ -55,9 +55,9 @@ export default function Button({
       case 'primary':
         return 'hover:brightness-110 hover:scale-105 active:scale-95'
       case 'secondary':
-        return 'hover:bg-white/5 active:scale-95'
+        return 'hover:bg-[var(--mode-text-primary)]/5 active:scale-95'
       case 'ghost':
-        return 'hover:bg-white/5 active:scale-95'
+        return 'hover:bg-[var(--mode-text-primary)]/5 active:scale-95'
     }
   })()
 

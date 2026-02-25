@@ -26,23 +26,22 @@ export default function HeroSection({
       ref={ref}
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
       style={{
-        background: `radial-gradient(ellipse at center, rgba(${theme.accentRGB}, 0.12) 0%, transparent 70%), #0a0a18`,
+        background: `radial-gradient(ellipse at center, rgba(${theme.accentRGB}, 0.12) 0%, transparent 70%), var(--mode-bg)`,
       }}
     >
       {/* Floating moon symbol */}
-      <div
+      <img
+        src="/icon.png"
+        alt=""
         className="absolute animate-float select-none pointer-events-none"
         style={{
           top: '10%',
           right: '10%',
-          fontSize: 'clamp(8rem, 20vw, 20rem)',
-          color: theme.accent,
-          opacity: 0.07,
-          lineHeight: 1,
+          width: 'clamp(8rem, 20vw, 20rem)',
+          height: 'auto',
+          opacity: 0.12,
         }}
-      >
-        ☽
-      </div>
+      />
 
       {/* Content */}
       <div
@@ -65,10 +64,10 @@ export default function HeroSection({
             </span>
           </div>
         )}
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 whitespace-pre-line leading-tight">
+        <h1 className="text-4xl md:text-6xl font-bold text-[var(--mode-text-primary)] mb-6 whitespace-pre-line leading-tight">
           {headline}
         </h1>
-        <p className="text-lg md:text-xl text-[#9090bb] mb-10 whitespace-pre-line leading-relaxed">
+        <p className="text-lg md:text-xl text-[var(--mode-text-secondary)] mb-10 whitespace-pre-line leading-relaxed">
           {subheadline}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -15,7 +15,7 @@ export default function Card({ children, className = '', hover = false }: CardPr
 
   return (
     <div
-      className={`bg-[#141430] border border-[#2e2e50] rounded-xl p-6 transition-all duration-300 ${
+      className={`bg-[var(--mode-surface)] border border-[var(--mode-border)] rounded-xl p-6 transition-all duration-300 ${
         hover
           ? 'hover:border-[var(--hover-border)] hover:shadow-lg hover:-translate-y-1'
           : ''
@@ -33,7 +33,7 @@ export default function Card({ children, className = '', hover = false }: CardPr
       onMouseLeave={(e) => {
         if (hover) {
           e.currentTarget.style.boxShadow = ''
-          e.currentTarget.style.borderColor = '#2e2e50'
+          e.currentTarget.style.borderColor = 'var(--mode-border)'
         }
       }}
     >

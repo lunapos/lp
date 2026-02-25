@@ -10,7 +10,6 @@ import PricingSection from '../components/sections/PricingSection.tsx'
 import CaseStudySection from '../components/sections/CaseStudySection.tsx'
 import FAQSection from '../components/sections/FAQSection.tsx'
 import CTASection from '../components/sections/CTASection.tsx'
-import NewsSection from '../components/sections/NewsSection.tsx'
 import type { LPContent } from '../types/index.ts'
 
 interface LandingPageProps {
@@ -57,7 +56,7 @@ export default function LandingPage({ content, waitlist }: LandingPageProps) {
   }, [content, theme])
 
   return (
-    <div className="min-h-screen bg-[#0e0e1a] text-white">
+    <div className="min-h-screen bg-[var(--mode-bg)] text-[var(--mode-text-primary)]">
       <Header />
       <main>
         <HeroSection
@@ -72,7 +71,6 @@ export default function LandingPage({ content, waitlist }: LandingPageProps) {
         <ScreenshotsSection />
         <PricingSection waitlist={waitlist} />
         <CaseStudySection testimonials={content.testimonials} waitlist={waitlist} />
-        <NewsSection />
         <FAQSection faqs={content.faqs} />
         <CTASection
           headline={content.cta.headline}
@@ -90,13 +88,13 @@ export default function LandingPage({ content, waitlist }: LandingPageProps) {
             : 'translate-y-full opacity-0'
         }`}
         style={{
-          background: 'rgba(10, 10, 24, 0.95)',
+          background: 'color-mix(in srgb, var(--mode-bg) 95%, transparent)',
           backdropFilter: 'blur(12px)',
           borderTop: `1px solid rgba(${theme.accentRGB}, 0.2)`,
         }}
       >
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-          <p className="hidden sm:block text-sm text-[#9090bb]">
+          <p className="hidden sm:block text-sm text-[var(--mode-text-secondary)]">
             {waitlist ? '順次公開予定 - 公式LINEで受付中' : '累計500会計まで無料でお試しいただけます'}
           </p>
           <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -114,7 +112,7 @@ export default function LandingPage({ content, waitlist }: LandingPageProps) {
             {!waitlist && (
               <a
                 href="#pricing"
-                className="hidden sm:inline-flex items-center justify-center font-medium rounded-xl px-6 py-2.5 text-sm transition-all duration-300 hover:bg-white/5 active:scale-95"
+                className="hidden sm:inline-flex items-center justify-center font-medium rounded-xl px-6 py-2.5 text-sm transition-all duration-300 hover:bg-[var(--mode-text-primary)]/5 active:scale-95"
                 style={{
                   color: theme.accentLight,
                   border: `1px solid ${theme.accent}`,
