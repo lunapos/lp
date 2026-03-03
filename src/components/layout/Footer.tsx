@@ -90,10 +90,34 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Official Site & Contact */}
           <div>
-            <h3 className="text-[var(--mode-text-primary)] font-semibold mb-4">お問い合わせ</h3>
+            <h3 className="text-[var(--mode-text-primary)] font-semibold mb-4">LunaPos</h3>
             <ul className="flex flex-col gap-2">
+              <li>
+                <a
+                  href="https://www.lunapos.jp"
+                  className="text-[var(--mode-text-muted)] text-sm hover:text-[var(--mode-text-primary)] transition-colors duration-200"
+                >
+                  公式サイト
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.lunapos.jp/column"
+                  className="text-[var(--mode-text-muted)] text-sm hover:text-[var(--mode-text-primary)] transition-colors duration-200"
+                >
+                  コラム
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.lunapos.jp/contact"
+                  className="text-[var(--mode-text-muted)] text-sm hover:text-[var(--mode-text-primary)] transition-colors duration-200"
+                >
+                  お問い合わせ
+                </a>
+              </li>
               <li>
                 <a
                   href="mailto:contact@lunapos.jp"
