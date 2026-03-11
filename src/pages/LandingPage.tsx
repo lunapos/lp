@@ -47,6 +47,18 @@ export default function LandingPage({ content, waitlist }: LandingPageProps) {
       document.head.appendChild(meta)
     }
 
+    // Set canonical URL（HP側を正規ページに指定し、重複コンテンツを回避）
+    const canonicalUrl = 'https://lunapos.jp'
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
+    if (canonicalLink) {
+      canonicalLink.href = canonicalUrl
+    } else {
+      canonicalLink = document.createElement('link')
+      canonicalLink.rel = 'canonical'
+      canonicalLink.href = canonicalUrl
+      document.head.appendChild(canonicalLink)
+    }
+
     // Set CSS custom properties on document root
     const root = document.documentElement
     root.style.setProperty('--accent', theme.accent)
