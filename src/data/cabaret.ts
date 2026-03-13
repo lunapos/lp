@@ -128,6 +128,6 @@ export const cabaretContent: LPContent = {
   cta: {
     headline: 'キャバクラに最適化されたPOS、\n今すぐお試しください',
     subheadline:
-      '累計500会計まで無料。まずはお気軽にお試しください。導入サポートも万全です。',
+      '累計500会計まで無料。まずはお気軽にお試しください。',
   },
 }

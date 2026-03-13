@@ -1,8 +1,11 @@
 {
   "permissions": {
     "allow": [
+      "Bash(*)",
       "Bash(npm run dev:*)",
-      "Bash(vercel:*)"
+      "Bash(vercel:*)",
+      "WebSearch",
+      "WebFetch"
     ]
   }
 }
