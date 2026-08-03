@@ -108,7 +108,7 @@ export const girlsBarContent: LPContent = {
     {
       question: '解約はいつでもできますか？',
       answer:
-        'はい、いつでもその場で解約できます。NetflixやSpotifyのように、使いたいときに始めて、やめたいときにすぐやめられます。契約期間の縛りもありません。',
+        'はい、いつでもその場で解約できます。Netflixやplaceifyのように、使いたいときに始めて、やめたいときにすぐやめられます。契約期間の縛りもありません。',
     },
 {
       question: '無料で使えますか？',
